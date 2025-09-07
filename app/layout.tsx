@@ -26,3 +26,4 @@ export default function RootLayout({
       </body>
     </html>
   );
+} // <- ปิดฟังก์ชันตรงนี้
