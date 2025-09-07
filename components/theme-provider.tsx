@@ -1,10 +1,12 @@
+// components/theme-provider.tsx
 "use client";
 
 import * as React from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
-import type { ThemeProviderProps } from "next-themes/dist/types";
 
-// รับ props ทั้งหมดของ next-themes แล้วส่งต่อ (forward) ให้ครบ
-export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
-  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
+// ให้ TS อนุมาน props จากคอมโพเนนต์จริง แทนที่จะ import จาก 'dist/types'
+export function ThemeProvider(
+  props: React.ComponentProps<typeof NextThemesProvider>
+) {
+  return <NextThemesProvider {...props} />;
 }
